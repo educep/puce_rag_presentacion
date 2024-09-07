@@ -1,0 +1,29 @@
+# ML
+umap-learn
+transformers==4.42.3
+# torch  <- see Makefile (cuda)
+scikit-learn
+numpy<2.0.0
+
+# LINTERS
+black==24.3.0
+datasets==2.20.0
+flake8==7.1.0
+isort==5.13.2
+pre-commit==3.7.0
+
+# APP
+streamlit==1.36.0
+streamlit-reveal-slides==0.2.0
+streamlit-code-editor==0.1.21
+plotly
+
+# UTILITIES
+python-dotenv==1.0.1
+requests==2.32.3
+typer==0.12.3
+matplotlib
+pandas
+
+# LOCAL PACKAGES
+-e .
