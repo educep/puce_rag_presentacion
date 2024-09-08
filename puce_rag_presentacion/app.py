@@ -2,7 +2,12 @@
 Created by Analitika at 25/08/2024
 contact@analitika.fr
 """
+# External imports
 import reveal_slides as rs
+import sys
+
+# Internal imports
+sys.path.append(".")
 from puce_rag_presentacion.slides import sample_markdown
 
 theme = "white-contrast"
