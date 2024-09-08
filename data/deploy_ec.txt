@@ -1,0 +1,118 @@
+deploy streamlit-reveal
+
+
+1. Connect to the server via SSH:
+
+ssh -i "C:\Users\ecepeda\OneDrive - analitika.fr\Documentos\PROYECTOS\ANALITIKA\DEV\AWS\DS-WEBSITE\ds-ec.pem" ubuntu@ec2-13-38-47-80.eu-west-3.compute.amazonaws.com
+
+2. Install python
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install python3-pip -y
+sudo apt install python3.12-venv -y
+sudo apt install -y git
+sudo apt install -y nginx
+
+git clone https://github.com/educep/puce_rag_presentacion
+cd puce_rag_presentacion
+git pull origin main
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# create .env
+sudo nano .env
+
+# -------------------------------------------
+HUGGING_FACE="XXXXXXXX"
+# -------------------------------------------
+
+
+run the app
+streamlit run ./puce_rag_presentacion/app.py --server.port 8501
+
+Open Apache & Nginx Settings:
+
+sudo touch /etc/systemd/system/streamlit.service
+sudo nano /etc/systemd/system/streamlit.service
+#**************************************************
+[Unit]
+Description=Streamlit App
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/puce_rag_presentacion
+ExecStart=/home/ubuntu/puce_rag_presentacion/.venv/bin/streamlit run ./puce_rag_presentacion/app.py --server.port 8501 --server.headless=true
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+#**************************************************
+
+sudo systemctl daemon-reload
+sudo systemctl stop streamlit
+sudo systemctl start streamlit
+sudo systemctl enable streamlit
+sudo systemctl status streamlit
+
+
+sudo touch /etc/nginx/sites-available/streamlit.conf
+sudo nano /etc/nginx/sites-available/streamlit.conf
+**************************************************
+upstream ws-backend {
+	server 127.0.0.1:8501; 
+}
+
+
+server {
+    listen 80;
+    server_name ec2-13-38-47-80.eu-west-3.compute.amazonaws.com intro-rag.datoscout.ec;
+
+    sendfile on;
+    tcp_nopush on;
+    types_hash_max_size 5120;
+    client_max_body_size 50m;
+    proxy_headers_hash_max_size 512;
+    keepalive_timeout 120s;
+    proxy_connect_timeout 120s;
+    proxy_send_timeout 120s;
+    proxy_read_timeout 120s;
+    fastcgi_send_timeout 120s;
+    fastcgi_read_timeout 120s;
+
+    location / {
+		proxy_pass http://ws-backend;
+		proxy_http_version 1.1;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "upgrade";
+		proxy_read_timeout 86400s;
+    }
+}
+**************************************************
+WITH HTTPS:
+
+
+SSL Certificate
+sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d intro-rag.datoscout.ec
+
+sudo ln -s /etc/nginx/sites-available/streamlit.conf /etc/nginx/sites-enabled
+sudo nano /etc/nginx/nginx.conf
+# change user -> ubuntu
+
+test it:
+sudo nginx -t
+sudo systemctl reload nginx
+
+
+sudo journalctl -u streamlit.service -f
+
+sudo tail -f /var/log/nginx/error.log
+sudo tail -f /var/log/nginx/access.log
+sudo netstat -tuln | grep 8501
