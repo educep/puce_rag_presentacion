@@ -3,7 +3,7 @@ deploy streamlit-reveal
 
 1. Connect to the server via SSH:
 
-ssh -i "C:\Users\ecepeda\OneDrive - analitika.fr\Documentos\PROYECTOS\ANALITIKA\DEV\AWS\DS-WEBSITE\ds-ec.pem" ubuntu@ec2-13-38-47-80.eu-west-3.compute.amazonaws.com
+ssh -i "ds-ec.pem" ubuntu@ec2-13-38-47-80.eu-west-3.compute.amazonaws.com
 
 2. Install python
 sudo apt update -y && sudo apt upgrade -y
@@ -13,7 +13,6 @@ sudo apt install -y git
 sudo apt install -y nginx
 
 git clone https://github.com/educep/puce_rag_presentacion
-access token: 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
 cd puce_rag_presentacion
 git pull origin main
 python3 -m venv .venv
