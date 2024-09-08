@@ -5,11 +5,13 @@ contact@analitika.fr
 # External imports
 import reveal_slides as rs
 import sys
+import streamlit as st
 
 # Internal imports
 sys.path.append(".")
-from puce_rag_presentacion.slides import sample_markdown
+from puce_rag_presentacion.slides import sample_markdown, favicon
 
+st.set_page_config(page_icon=favicon)
 theme = "white-contrast"
 height = 500
 content_height = 900

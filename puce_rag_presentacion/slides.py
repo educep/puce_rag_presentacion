@@ -2,9 +2,14 @@
 Created by Analitika at 07/09/2024
 contact@analitika.fr
 """
+import os
 
-aws_path = r"https://ank-public-bkt-1.s3.eu-west-3.amazonaws.com/ank-shared/Marketing"
+from dotenv import load_dotenv
 
+load_dotenv()
+aws_path = os.getenv("AWS_PATH")
+
+favicon = f"{aws_path}/DS_Imagen_de_marca/logos/favicondsazul.png"
 sample_markdown = fr"""
 <section style="background-color: #0772CA; color: white; text-align: center;">
     <div style="margin-top: 15vh;">
