@@ -30,7 +30,7 @@ sample_markdown = fr"""
         <strong>Eduardo Cepeda, Ph.D.</strong> <br>
         <em>CEO & Founder</em> <br>
         📞 +33 (0)6 50 90 01 49 <br>
-        ✉️ <a href="mailto:eduardo@datoscout.com" style="color: white;">eduardo@datoscout.com</a> <br>
+        ✉️ <a href="mailto:eduardo@datoscout.ec" style="color: white;">eduardo@datoscout.ec</a> <br>
         🌐 <a target="_blank" href="http://www.datoscout.ec" style="color: white;">www.datoscout.ec</a>
     </div>
     <!-- Image positioned on the right side using CSS -->
@@ -256,7 +256,7 @@ $\scriptsize \rm{{cosine\\,similarity}} = \frac{{ Emb_1 \cdot Emb_2 }} {{ ||Emb_
 ## The end
 <img src="{aws_path}/PRESENTACION+PUCE/cari.png" alt="projections" style="width: 700px; height: auto;">
 <div style="font-size: 0.9em; text-align: left; list-style-type: disc; margin-left: 200px;">
-<p>Encuéntrame en <a target="_blank" href="https://www.linkedin.com/in/educep/">LinkedIn <img src="{aws_path}/PRESENTACION+PUCE/LILOGO.png" alt="GitHub Logo" style="width: 50px; height: auto;"></a></p>
+<p>Encuéntrame en <a target="_blank" href="https://www.linkedin.com/in/educep/">LinkedIn <img src="{aws_path}/PRESENTACION+PUCE/LILOGO.png" alt="GitHub Logo" style="width: 50px; height: auto;"></a> <a href="mailto:eduardo@datoscout.ec">eduardo@datoscout.ec ✉️</a></p>
 <p>Código: <a target="_blank" href="https://github.com/educep/puce_rag_presentacion">GitHub /educep <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width: 50px; height: auto;"></a></p>
 <p>Slides: <a target="_blank" href="https://intro-rag.datoscout.ec">https://intro-rag.datoscout.ec <img src="{aws_path}/DS_Imagen_de_marca/logos/DS+logo.png" alt="GitHub Logo" style="width: 50px; height: auto;"></a></p>
 </div>
