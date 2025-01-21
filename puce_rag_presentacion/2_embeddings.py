@@ -69,23 +69,6 @@ do_scatter_plot(df_emb)
 
 
 
-# import matplotlib.pyplot as plt
-# fig, axes = plt.subplots(2, 3, figsize=(7, 5))
-# axes = axes.flatten()
-# cmaps = ["Reds", "Blues", "Oranges"]
-# labels = sentences_df.columns
-# for i, (label, cmap) in enumerate(zip(labels, cmaps)):
-#     df_emb_sub = df_emb.query(f"label == {i}")
-#     axes[i].hexbin(df_emb_sub["X"], df_emb_sub["Y"], cmap=cmap, gridsize=20, linewidths=(0,))
-#     axes[i].set_title(label)
-#     axes[i].set_xticks([]), axes[i].set_yticks([])
-#
-# plt.tight_layout()
-# plt.show()
-
-
-
-
 # todo: apply also with queries
 
 # Define the source sentence and a list of other sentences

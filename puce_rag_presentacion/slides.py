@@ -15,9 +15,9 @@ sample_markdown = fr"""
     <div style="margin-top: 15vh;">
         <h1 style="font-size: 1.5em; font-weight: bold;">Fundamentos de LLMs</h1>
         <h1 style="font-size: 1.5em; font-weight: bold;">Comparación Semántica y RAG</h1>
-        <h2 style="font-size: 1.0em; font-style: italic;">Escuela de Verano - ML</h2>
-        <h3 style="font-size: 1.2em;">Pontificia Universidad Católica - Quito</h3>
-        <p style="font-size: 1.1em; margin-top: 1.5em;">13 Septiembre 2024</p>
+        <h2 style="font-size: 1.0em; font-style: italic;">Webinar</h2>
+        <h3 style="font-size: 1.2em;">Datoscout - Quito</h3>
+        <p style="font-size: 1.1em; margin-top: 1.5em;"> 24 Enero 2025</p>
     </div>
 </section>
 ---
