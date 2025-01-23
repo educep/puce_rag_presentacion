@@ -11,7 +11,7 @@ aws_path = os.getenv("AWS_PATH")
 
 favicon = f"{aws_path}/DS_Imagen_de_marca/logos/favicondsazul.png"
 sample_markdown = fr"""
-<section style="background-color: #0772CA; color: white; text-align: center;">
+<section style="background-color: #098DFA; color: white; text-align: center;">
     <div style="margin-top: 15vh;">
         <h1 style="font-size: 1.5em; font-weight: bold;">Fundamentos de LLMs</h1>
         <h1 style="font-size: 1.5em; font-weight: bold;">Comparación Semántica y RAG</h1>

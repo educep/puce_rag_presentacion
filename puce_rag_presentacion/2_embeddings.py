@@ -59,7 +59,7 @@ from sklearn.preprocessing import MinMaxScaler
 # Scale features to [0,1] range
 X_scaled = MinMaxScaler().fit_transform(all_embeddings)
 # Initialize and fit UMAP
-mapper = UMAP(n_components=2, metric="cosine", random_state=10).fit(X_scaled)
+mapper = UMAP(n_components=2, metric="cosine", random_state=42).fit(X_scaled)
 # Create a DataFrame of 2D embeddings
 df_emb = pd.DataFrame(mapper.embedding_, columns=["X", "Y"])
 df_emb["label"] = all_labels
